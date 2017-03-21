@@ -1,0 +1,21 @@
+{
+  "name": "react-native-repackager",
+  "version": "0.0.1",
+  "description": "Custom extension for react-native packager",
+  "main": "index.js",
+  "scripts": {
+    "test": ":",
+    "postinstall": "git apply add_custom_extensions_to_react_packager.patch"
+  
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wix/react-native-repackager.git"
+  },
+  "author": "Omri Bruchim <omrib@wix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wix/react-native-repackager/issues"
+  },
+  "homepage": "https://github.com/wix/react-native-repackager#readme"
+}
