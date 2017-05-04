@@ -1,5 +1,5 @@
 # react-native-repackager
-Custom extensions for react-native packager
+Adding support for custom extension's files for react-native packager
 
 
 `react-native-repackager` is a [React Native](https://facebook.github.io/react-native/) npm extension package which provide you an easy way to add files with custom extensions and to use them to override the original file while running RN packager with special parameter.
@@ -14,11 +14,12 @@ Custom extensions for react-native packager
 
 ## why-do-we-need-this-package
 
-One of the biggest challenges when running e2e like tests with react environment (like [Detox](https://github.com/wix/detox/)) is easy mocking.
+One of the biggest challenges when writing tests with react environment is easy mocking.
+Another case, is running your app with different behavior in diffeent environments or debug\release 
 
 Consider the following use-cases:
-* Under Detox, use localhost mock HTTP server instead of the production service endpoint
-* Under Detox, instead of natively accessing the contacts on the device, return mock contacts
+* Under e2e tests, use localhost mock HTTP server instead of the production service endpoint
+* When running ios simulator, instead of natively accessing the contacts on the device, return mock contacts
 <br/>
 In order to make it's super easy to mock stuff for tests, this package approach it like we handle in JavaScript code that is different between iOS and Android.
 So in order to replace someFile.js, we will also create someFile.mock.js in the same directory.
