@@ -60,6 +60,8 @@ node node_modules/react-native/local-cli/cli.js start --customExtensions=foo
 node node_modules/react-native/local-cli/cli.js start --customExtensions='foo, bar'
 ```
 
+**Limitation - Currently support only react native packager in debug mode (will not replace file for Release version)**
+
 ## Implementation Details
 
 * This package inject code into the RN packager implementation (!)
