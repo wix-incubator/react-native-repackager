@@ -8,22 +8,16 @@ const rootDir = process.cwd();
 const scriptDir = __dirname;
 const reactNativeDir = `${rootDir}/node_modules/react-native`;
 
-const shouldSetup = _.includes(process.argv, 'setup');
-
 run();
 
 function run() {
-  console.log(`rootDir: ${rootDir}`);
-  console.log(`scriptDir: ${scriptDir}`);
   assertRN44();
-  if (shouldSetup) {
-    if (alreadyApplied()) {
-      console.log(`repackager was already applied successfully, exiting`);
-      return;
-    }
-    console.log(`injecting support for --customExtensions`);
-    exec.execSync(`git apply --verbose --no-index --directory node_modules/react-native ${scriptDir}/rn44PackagerCustomExtensions.patch`);
+  if (alreadyApplied()) {
+    console.log(`repackager was already applied successfully, exiting`);
+    return;
   }
+  console.log(`injecting support for --customExtensions`);
+  exec.execSync(`git apply --verbose --no-index --directory node_modules/react-native ${scriptDir}/rn44PackagerCustomExtensions.patch`);
 }
 
 function assertRN44() {
