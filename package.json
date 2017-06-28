@@ -2,10 +2,14 @@
   "name": "react-native-repackager",
   "version": "0.1.0",
   "description": "Custom extension for react-native packager",
+  "bin": {
+    "repackager": "./repackager.js",
+    "repackager-sourcemap": "./repackagerSourcemap.js",
+    "repackager-e2e": "./repackagerE2E.js"
+  },
   "main": "index.js",
   "scripts": {
-    "test": ":",
-    "postinstall": "node ./postinstall.js"
+    "test": ":"
   },
   "repository": {
     "type": "git",
