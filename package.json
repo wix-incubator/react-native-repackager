@@ -2,17 +2,9 @@
   "name": "react-native-repackager",
   "version": "0.1.3",
   "description": "Custom extension for react-native packager",
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  },
-  "bin": {
-    "repackager": "./repackager.js",
-    "repackager-sourcemap": "./repackagerSourcemap.js",
-    "repackager-e2e": "./repackagerE2E.js"
-  },
-  "main": "index.js",
-  "scripts": {
-    "test": ":"
   },
   "repository": {
     "type": "git",
@@ -22,9 +14,17 @@
   "contributors": [
     "Daniel Zlotin <zlotindaniel@gmail.com>"
   ],
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/wix/react-native-repackager/issues"
   },
-  "homepage": "https://github.com/wix/react-native-repackager#readme"
+  "homepage": "https://github.com/wix/react-native-repackager#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": ":",
+    "postinstall": "node ./repackager.js"
+  },
+  "dependencies": {
+    "shell-utils": "1.x.x",
+    "lodash": "4.x.x"
+  }
 }
