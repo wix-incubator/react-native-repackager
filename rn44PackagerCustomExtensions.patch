@@ -1,3 +1,13 @@
+diff --git a/local-cli/cli.js b/local-cli/cli.js
+index 14cf1a8d8..8f05a6233 100644
+--- a/local-cli/cli.js
++++ b/local-cli/cli.js
+@@ -24,3 +24,5 @@ if (require.main === module) {
+ }
+
+ module.exports = cliEntry;
++
++// repackager applied successfully
 diff --git a/local-cli/bundle/buildBundle.js b/local-cli/bundle/buildBundle.js
 index a1ac7c7d1..ec50cf620 100644
 --- a/local-cli/bundle/buildBundle.js
