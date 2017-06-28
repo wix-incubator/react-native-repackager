@@ -20,8 +20,10 @@
   "homepage": "https://github.com/wix/react-native-repackager#readme",
   "main": "index.js",
   "scripts": {
-    "test": ":",
-    "postinstall": "node ./repackager.js"
+    "test": ":"
+  },
+  "bin": {
+    "repackager": "./repackager.js"
   },
   "dependencies": {
     "shell-utils": "1.x.x",
