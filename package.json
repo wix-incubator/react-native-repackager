@@ -2,6 +2,9 @@
   "name": "react-native-repackager",
   "version": "0.1.2",
   "description": "Custom extension for react-native packager",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "bin": {
     "repackager": "./repackager.js",
     "repackager-sourcemap": "./repackagerSourcemap.js",
