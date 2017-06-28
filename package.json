@@ -1,6 +1,6 @@
 {
   "name": "react-native-repackager",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Custom extension for react-native packager",
   "license": "MIT",
   "publishConfig": {
