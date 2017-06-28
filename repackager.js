@@ -30,22 +30,22 @@ function run() {
 }
 
 function setup() {
-  if (alreadySetup()) {
-    console.log(`repackager was already applied successfully, exiting`);
+  if (!shouldReverse && alreadySetup()) {
+    console.log(`repackager was already applied successfully, exiting. Maybe you would like to --reverse ?`);
     return;
   }
   console.log(`injecting support for --customExtensions`);
-  exec.execSync(`git apply --verbose --no-index --directory node_modules/react-native ${scriptDir}/rn44PackagerCustomExtensions.patch`);
+  apply('rn44PackagerCustomExtensions');
 }
 
 function injectSourceMap() {
   console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle sourcemap arg to release builds`);
-  exec.execSync(`git apply ${shouldReverse ? '--reverse' : ''} --verbose --no-index --directory node_modules/react-native ${scriptDir}/rn44PackagerReleaseSourceMap.patch`);
+  apply('rn44PackagerReleaseSourceMap');
 }
 
 function injectMockedE2E() {
   console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle customExtensions=e2e to release builds`);
-  exec.execSync(`git apply ${shouldReverse ? '--reverse' : ''} --verbose --no-index --directory node_modules/react-native ${scriptDir}/rn44PackagerReleaseMockedE2E.patch`);
+  apply('rn44PackagerReleaseMockedE2E');
 }
 
 function assertRN44() {
@@ -61,4 +61,8 @@ function assertRN44() {
 
 function alreadySetup() {
   return _.includes(String(fs.readFileSync(`${reactNativeDir}/local-cli/cli.js`)), 'repackager applied successfully');
+}
+
+function apply(patchFileName) {
+  exec.execSync(`git apply ${shouldReverse ? '--reverse' : ''} --verbose --no-index --directory node_modules/react-native ${scriptDir}/${patchFileName}.patch`);
 }
