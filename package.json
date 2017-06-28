@@ -1,6 +1,6 @@
 {
   "name": "react-native-repackager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Custom extension for react-native packager",
   "main": "index.js",
   "scripts": {
