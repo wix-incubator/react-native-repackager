@@ -61,7 +61,7 @@ node node_modules/react-native/local-cli/cli.js start --customExtensions='foo, b
 
 ## Implementation Details
 
-* This package inject code into the RN packager implementation (!)
+* This package injects code into the RN packager implementation (!)
 
 ## License
 
