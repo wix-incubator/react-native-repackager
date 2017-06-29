@@ -1,40 +1,39 @@
 # react-native-repackager
-Adding support for custom extension's files for react-native packager
+Adding support for custom extension files for react-native packager
 
 
-`react-native-repackager` is a [React Native](https://facebook.github.io/react-native/) npm extension package which provide you an easy way to add files with custom extensions and to use them to override the original file while running RN packager with special parameter.
-
-
-* [Why do we need this package?](#why-do-we-need-this-package)
-* [Installation](#installation)
-* [Usage](#usage)
-* [Implementation Details](#implementation-details)
-* [License](#license)
-
+`react-native-repackager` is a [React Native](https://facebook.github.io/react-native/) packager extension which provide you an easy way to add files with custom extensions and to use them to override the original file while running RN packager with a special parameter.
 
 ## why-do-we-need-this-package
 
-One of the biggest challenges when writing tests with react environment is easy mocking.
-Another case, is running your app with different behavior in diffeent environments or debug\release 
+One of the biggest challenges when writing e2e tests with react environment is easy mocking.
+Another case, is running your app with different behavior in different environments or debug\release.
 
 Consider the following use-cases:
 * Under e2e tests, use localhost mock HTTP server instead of the production service endpoint
 * When running ios simulator, instead of natively accessing the contacts on the device, return mock contacts
 <br/>
-In order to make it's super easy to mock stuff for tests, this package approach it like we handle in JavaScript code that is different between iOS and Android.
-So in order to replace someFile.js, we will also create someFile.mock.js in the same directory.
+In order to make it super easy to mock stuff for tests, this package approach it like we handle imports in JavaScript code that is different between iOS and Android.
+So in order to replace SomeFile.js, we will also create SomeFile.mock.js in the same directory.
 When the packager will run for the e2e tests, it will pick up this file instead of the original. This way, the mocks files will not find themselves in our production code.
 
 
 ## Installation
 
-**Currently support RN 0.38 or 0.42**
+**Currently support RN 0.44
 
 * Install the package from npm
 
 ```
 npm install react-native-repackager --save
 ```
+
+## API
+
+* `repackager setup`: apply the code changes to the react-native packager
+* `repackager injectReleaseSourceMap`: apply injection of sourcemap to release builds
+* `repackager injectReleaseMockedE2E`: apply injection of `--customExtensions=e2e` to release builds
+* `repackager <command> --reverse`: reverses the command, applies the reverse changes
 
 ## Usage
 
@@ -60,13 +59,9 @@ node node_modules/react-native/local-cli/cli.js start --customExtensions=foo
 node node_modules/react-native/local-cli/cli.js start --customExtensions='foo, bar'
 ```
 
-**Limitation - Currently support only react native packager in debug mode (will not replace file for Release version)**
-
 ## Implementation Details
 
 * This package inject code into the RN packager implementation (!)
-
-* The repository contain only one patch file, and postinstall script. After npm install the package will replace the relevant files in RN packager to make the magic.
 
 ## License
 
