@@ -20,7 +20,7 @@ When the packager will run for the e2e tests, it will pick up this file instead 
 
 ## Installation
 
-**Currently support RN 0.44
+**Currently supports only RN 0.44**
 
 * Install the package from npm
 
@@ -46,7 +46,7 @@ The packager will search for custom files in the following order:
  2) filename.[customExtension].js
  3) filename.ios.js \ filename.android.js
 
-* run react-packager with --custom-extension parameter
+* run react-packager with --customExtension parameter
 
 ```
 node node_modules/react-native/local-cli/cli.js start --customExtensions=foo
