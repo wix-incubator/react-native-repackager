@@ -35,17 +35,17 @@ function setup() {
     return;
   }
   console.log(`injecting support for --customExtensions`);
-  apply('rn44PackagerCustomExtensions');
+  patch('rn44PackagerCustomExtensions');
 }
 
 function injectSourceMap() {
   console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle sourcemap arg to release builds`);
-  apply('rn44PackagerReleaseSourceMap');
+  patch('rn44PackagerReleaseSourceMap');
 }
 
 function injectMockedE2E() {
   console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle customExtensions=e2e to release builds`);
-  apply('rn44PackagerReleaseMockedE2E');
+  patch('rn44PackagerReleaseMockedE2E');
 }
 
 function assertRN44() {
@@ -65,4 +65,8 @@ function alreadySetup() {
 
 function apply(patchFileName) {
   exec.execSync(`git apply ${shouldReverse ? '--reverse' : ''} --verbose --no-index --directory node_modules/react-native ${scriptDir}/${patchFileName}.patch`);
+}
+
+function patch(patchFileName) {
+  exec.execSync(`patch ${shouldReverse ? '--reverse' : ''} --strip 1 --directory node_modules/react-native < ${scriptDir}/${patchFileName}.patch`);
 }
