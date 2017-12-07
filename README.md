@@ -28,6 +28,15 @@ When the packager will run for the e2e tests, it will pick up this file instead 
 npm install react-native-repackager --save
 ```
 
+add `repackager setup` to your postinstall script, this will patch the packager, adding `--customExtensions` feature to its cli.
+
+```json
+"scripts": {
+  "postinstall": "repackager setup"
+}
+```
+
+
 ## API
 
 * `repackager setup`: apply the code changes to the react-native packager
