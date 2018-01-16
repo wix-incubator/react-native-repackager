@@ -1,6 +1,6 @@
 {
   "name": "react-native-repackager",
-  "version": "0.2.2",
+  "version": "0.44.0",
   "description": "Custom extension for react-native packager",
   "license": "MIT",
   "publishConfig": {
@@ -10,10 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/wix/react-native-repackager.git"
   },
-  "author": "Omri Bruchim <omrib@wix.com>",
-  "contributors": [
-    "Daniel Zlotin <zlotindaniel@gmail.com>"
-  ],
+  "author": "Daniel Zlotin <zlotindaniel@gmail.com>",
   "bugs": {
     "url": "https://github.com/wix/react-native-repackager/issues"
   },

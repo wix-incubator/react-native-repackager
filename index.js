@@ -1,1 +1,1 @@
-console.error(`wut`);
+console.error(`lol wut`);

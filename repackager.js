@@ -63,10 +63,6 @@ function alreadySetup() {
   return _.includes(String(fs.readFileSync(`${reactNativeDir}/local-cli/cli.js`)), 'repackager applied successfully');
 }
 
-function apply(patchFileName) {
-  exec.execSync(`git apply ${shouldReverse ? '--reverse' : ''} --verbose --no-index --directory node_modules/react-native ${scriptDir}/${patchFileName}.patch`);
-}
-
 function patch(patchFileName) {
   exec.execSync(`patch ${shouldReverse ? '--reverse' : ''} --strip 1 --directory node_modules/react-native < ${scriptDir}/${patchFileName}.patch`);
 }
