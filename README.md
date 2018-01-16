@@ -1,7 +1,7 @@
 # Repackager
 Adding support for custom file extensions for react-native.
 
-### This packager is a workaround (read: giant hack) until [this PR is merged](https://github.com/facebook/react-native/pull/16948).
+### This repo is a workaround (read: giant hack) until [this PR is merged](https://github.com/facebook/react-native/pull/16948).
 
 ## Why
 
