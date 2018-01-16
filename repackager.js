@@ -9,23 +9,14 @@ const scriptDir = __dirname;
 const reactNativeDir = `${rootDir}/node_modules/react-native`;
 
 const shouldSetup = _.includes(process.argv, 'setup');
-const shouldInjectSourceMap = _.includes(process.argv, 'injectReleaseSourceMap');
-const shouldInjectMockedE2E = _.includes(process.argv, 'injectReleaseMockedE2E');
-
 const shouldReverse = _.includes(process.argv, '--reverse');
 
 run();
 
 function run() {
-  assertRN44();
+  assertRN51();
   if (shouldSetup) {
     setup();
-  }
-  if (shouldInjectSourceMap) {
-    injectSourceMap();
-  }
-  if (shouldInjectMockedE2E) {
-    injectMockedE2E();
   }
 }
 
@@ -34,28 +25,18 @@ function setup() {
     console.log(`repackager was already applied successfully, exiting. Maybe you would like to --reverse ?`);
     return;
   }
-  console.log(`injecting support for --customExtensions`);
-  patch('rn44PackagerCustomExtensions');
+  console.log(`injecting support for custom sourceExts`);
+  patch('repackagerRN51Setup');
 }
 
-function injectSourceMap() {
-  console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle sourcemap arg to release builds`);
-  patch('rn44PackagerReleaseSourceMap');
-}
-
-function injectMockedE2E() {
-  console.log(`${shouldReverse ? 'reversing' : 'injecting'} bundle customExtensions=e2e to release builds`);
-  patch('rn44PackagerReleaseMockedE2E');
-}
-
-function assertRN44() {
+function assertRN51() {
   const rnPackageFile = `${reactNativeDir}/package.json`;
   if (!fs.existsSync(rnPackageFile)) {
     throw new Error(`Can't locate react-native folder in ${reactNativeDir}`);
   }
   const rnPackageJson = JSON.parse(fs.readFileSync(rnPackageFile));
-  if (!_.startsWith(rnPackageJson.version, '0.44')) {
-    throw new Error(`Only react-native 0.44.x is supported currently`);
+  if (!_.startsWith(rnPackageJson.version, '0.51')) {
+    throw new Error(`Only react-native 0.51.x is supported`);
   }
 }
 

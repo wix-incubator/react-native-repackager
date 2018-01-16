@@ -1,7 +1,7 @@
 {
   "name": "react-native-repackager",
-  "version": "0.44.0",
-  "description": "Custom extension for react-native packager",
+  "version": "0.51.0",
+  "description": "Custom extensions support for react-native",
   "license": "MIT",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"

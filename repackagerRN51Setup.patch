@@ -1,0 +1,36 @@
+diff --git a/local-cli/bundle/buildBundle.js b/local-cli/bundle/buildBundle.js
+index 8b974088a..fc76e48d9 100644
+--- a/local-cli/bundle/buildBundle.js
++++ b/local-cli/bundle/buildBundle.js
+@@ -129,7 +129,7 @@ function buildBundle(
+       resetCache: args.resetCache,
+       reporter: new TerminalReporter(terminal),
+       runBeforeMainModule: config.runBeforeMainModule,
+-      sourceExts: defaultSourceExts.concat(sourceExts),
++      sourceExts: sourceExts.concat(defaultSourceExts),
+       transformCache: TransformCaching.useTempDir(),
+       transformModulePath: transformModulePath,
+       useDeltaBundler: false,
+diff --git a/local-cli/cli.js b/local-cli/cli.js
+index 14cf1a8d8..8f05a6233 100644
+--- a/local-cli/cli.js
++++ b/local-cli/cli.js
+@@ -24,3 +24,5 @@ if (require.main === module) {
+ }
+ 
+ module.exports = cliEntry;
++
++// repackager applied successfully
+diff --git a/local-cli/server/runServer.js b/local-cli/server/runServer.js
+index 7b1dd4e8e..462d4d0d5 100644
+--- a/local-cli/server/runServer.js
++++ b/local-cli/server/runServer.js
+@@ -197,7 +197,7 @@ function getPackagerServer(args, config, reporter) {
+     runBeforeMainModule: config.runBeforeMainModule,
+     reporter,
+     resetCache: args.resetCache,
+-    sourceExts: defaultSourceExts.concat(args.sourceExts),
++    sourceExts: args.sourceExts.concat(defaultSourceExts),
+     transformModulePath: transformModulePath,
+     transformCache: TransformCaching.useTempDir(),
+     useDeltaBundler: false,
