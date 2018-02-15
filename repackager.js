@@ -45,5 +45,5 @@ function alreadySetup() {
 }
 
 function patch(patchFileName) {
-  exec.execSync(`patch ${shouldReverse ? '--reverse' : ''} --strip 1 --directory node_modules/react-native < ${scriptDir}/${patchFileName}.patch`);
+  exec.execSync(`patch ${shouldReverse ? '--reverse' : ''} --strip 1 --directory node_modules/react-native < "${scriptDir}/${patchFileName}.patch"`);
 }
