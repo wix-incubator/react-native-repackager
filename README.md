@@ -1,3 +1,7 @@
+![MISSION ACCOMPLISHED](https://i1.wp.com/dbdailyupdate.com/wp-content/uploads/2018/04/trump-mission-accomplished.jpg?fit=594%2C393)
+
+# This project is no longer needed as of `react-native@0.55.x`
+
 # Repackager
 Adding support for custom file extensions for react-native.
 
